@@ -1,13 +1,17 @@
 img {
-        text-align: center;
+        position: relative;
+        left: 50px;
         top: 50px;
-        height: 800px;
-        width: 950px;
-        position: absolute;
-        left: 200px;
+        right: 20px;
+        bottom: 50px;
+        max-width: 70%;
+        max-height: 70%;
+        height: auto;
+        text-align: left;
 }
 
 body {
+        position: relative;
         color: black;
         background-color: #F0F8FF;
         font-size: 20px;
@@ -15,7 +19,7 @@ body {
 }
 
 h1 {
-        position: absolute;
+        position: relative;
         left: 410px;
         top: 200px;
         color: black;
@@ -27,29 +31,24 @@ h2 {
         color: black;
         font-size: 30px;
         text-align: left;
-	position: absolute;
-	left: 1400px;
-	top: 50px;
+        position: relative;
+        left: 20px;
+        right: 100px;
+        top: 50px;
 }
 
 h3 {
-	color: black;
-	font-size: 20;
-	position: absolute:
-	right: 100px;
-	bottom: 100px;
-}
-
-h4 {
         color: black;
-        font-size: 25px;
-        text-align: left;
-        position: absolute;
-        left: 1400px;
-        bottom: 250px;
+        font-size: 20;
+        position: relative:
+        left: 20x;
+        right: 100px;
+        bottom: 100px;
 }
 
 button {
-	position: absolute;
-	bottom: 20px;
+        position: relative;
+        top: 500px;
+        left: 20x;
+        bottom: 20px;
 }
