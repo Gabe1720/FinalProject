@@ -1,0 +1,84 @@
+<!-- movies-filtered.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Movies Filtered</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <h1>Movies Filtered</h1>
+    <div id="filter-options">
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" placeholder="Enter genre">
+
+        <label for="rating">Rating:</label>
+        <input type="text" id="rating" placeholder="Enter rating">
+
+        <label for="platform">Platform:</label>
+        <input type="text" id="platform" placeholder="Enter platform">
+
+        <button onclick="filterMovies()">Filter</button>
+        <button onclick="resetFilter()">Reset Filter</button>
+    </div>
+    <ul id="movie-list"> 
+        <!-- Movie titles will be displayed here -->
+    </ul>
+    <script>
+        let allMovies = [];
+
+// Load CSV data from an external file
+fetch('movies_metadata.csv')
+    .then(response => response.text())
+    .then(data => parseCSV(data))
+    .catch(error => console.error('Error:', error));
+
+function parseCSV(csvText) {
+    Papa.parse(csvText, {
+        header: true,
+        skipEmptyLines: true,
+        complete: function(results) {
+            allMovies = results.data;
+            displaySortedMovieTitles(allMovies);
+        },
+        error: function(error) {
+            console.error('Error:', error);
+        }
+    });
+}
+
+function filterMovies() {
+    const genreInput = document.getElementById('genre').value.toLowerCase();
+    const ratingInput = document.getElementById('rating').value.toLowerCase();
+    const platformInput = document.getElementById('platform').value.toLowerCase();
+
+    const filteredMovies = allMovies.filter(movie =>
+        (!genreInput || movie.genres.toLowerCase().includes(genreInput)) &&
+        (!ratingInput || movie.vote_average.toString().toLowerCase().includes(ratingInput)) &&
+        (!platformInput || movie.production_companies.toLowerCase().includes(platformInput))
+    );
+
+    displaySortedMovieTitles(filteredMovies);
+}
+
+function resetFilter() {
+    displaySortedMovieTitles(allMovies);
+}
+
+function displaySortedMovieTitles(movies) {
+    const movieList = document.getElementById('movie-list');
+    movieList.innerHTML = '';  // Clear previous results
+
+    // Extract and sort movie titles alphabetically
+    const sortedTitles = movies.map(movie => movie.title).sort();
+
+    // Display sorted titles
+    sortedTitles.forEach(title => {
+        const titleItem = document.createElement('li');
+        titleItem.textContent = title;
+        movieList.appendChild(titleItem);
+    });
+}
+    </script>
+</body>
+</html>
