@@ -1,63 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>List of Movie Titles</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-</head>
-<body>
-    <h1>List of All Movie Titles</h1>
-    <p><a href="movies_filtered.html">Go to Movies Filtered</a></p>
-    <div id="movie-list">
-        <!-- Movie titles will be displayed here -->
-    </div>
-    <script>
-        // Load CSV data from an external file
-        fetch('movies_metadata.csv')
-            .then(response => response.text())
-            .then(data => parseCSV(data))
-            .catch(error => console.error('Error:', error));
-
-        function parseCSV(csvText) {
-            Papa.parse(csvText, {
-                header: true,
-                skipEmptyLines: true,
-                complete: function(results) {
-                    displaySortedMovieTitles(results.data);
-                },
-                error: function(error) {
-                    console.error('Error:', error);
-                }
-            });
-        }
-
-        //This function displays the list of movies by ascending index.
-        /*function displayMovieTitles(movies) {
-            const movieList = document.getElementById('movie-list');
-
-            // Extract and display movie titles
-            movies.forEach(movie => {
-                const title = movie.title;
-                const titleItem = document.createElement('p');
-                titleItem.textContent = title;
-                movieList.appendChild(titleItem);
-            });
-        }*/
-
-        //This function displays the list of movies in alphabetical order.
-        function displaySortedMovieTitles(movies) {
-            const movieList = document.getElementById('movie-list');
-
-            // Extract and sort movie titles alphabetically
-            const sortedTitles = movies.map(movie => movie.title).sort();
-
-            // Display sorted titles
-            sortedTitles.forEach(title => {
-                const titleItem = document.createElement('li');
-                titleItem.textContent = title;
-                movieList.appendChild(titleItem);
-            });
-        }
-    </script>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title>List of Movie Titles</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    </head>
+    <body>
+        <h1>List of All Movie Titles</h1>
+        <p><a href="movies_filtered.html">Go to Movies Filtered</a></p>
+        <div id="movie-list">
+            <!-- Movie titles will be displayed here -->
+        </div>
+        <script src = "movie_index.js"></script>
+    </body>
 </html>
