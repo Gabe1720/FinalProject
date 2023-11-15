@@ -1,7 +1,7 @@
 const source = new String("https://filmartgallery.com/cdn/shop/products");
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get('id');
-fetch("./Database_files/movies_metadata.csv/movies_metadata.csv")
+fetch('movies_metadata.csv')
     .then(response => response.text())
     .then(data => {
         // Parse CSV data
