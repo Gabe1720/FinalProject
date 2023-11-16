@@ -1,29 +1,30 @@
 <!-- movies-filtered.html -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Movies Filtered</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    </head>
-    <body>
-        <h1>Movies Filtered</h1>
-        <div id="filter-options">
-            <label for="genre">Genre:</label>
-            <input type="text" id="genre" placeholder="Enter genre">
+<head>
+    <meta charset="utf-8">
+    <title>Movies Filtered</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="movies_filtered.js"></script>
+</head>
+<body>
+    <h1>Movies Filtered</h1>
+    <div id="filter-options">
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" placeholder="Enter genre">
 
-            <label for="rating">Rating:</label>
-            <input type="text" id="rating" placeholder="Enter rating">
+        <label for="rating">Rating:</label>
+        <input type="text" id="rating" placeholder="Enter rating">
 
-            <label for="platform">Platform:</label>
-            <input type="text" id="platform" placeholder="Enter platform">
+        <label for="platform">Platform:</label>
+        <input type="text" id="platform" placeholder="Enter platform">
 
-            <button onclick="filterMovies()">Filter</button>
-            <button onclick="resetFilter()">Reset Filter</button>
-        </div>
-        <ul id="movie-list"> 
+        <button onclick="filterMovies()">Filter</button>
+        <button onclick="resetFilter()">Reset Filter</button>
+    </div>
+    <ul id="movie-list"> 
         <!-- Movie titles will be displayed here -->
-        </ul>
-        <script src = "movies_filtered.js"> </script>
-    </body>
+    </ul>
+    <script></script>
+</body>
 </html>
