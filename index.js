@@ -1,6 +1,7 @@
 fetch('movies_metadata.csv')
     .then(response => response.text())
     .then(data => {
+        console.log("index.js refreshed!");
         // Parse CSV data
         const rows = data.split('\n');
         const headers = rows[0].split(',');
@@ -23,7 +24,7 @@ fetch('movies_metadata.csv')
         movies.forEach(movie => {
             const movieDiv = document.createElement('div');
             movieDiv.innerHTML = `
-                <a href="./details2.html?id=${movie.id}">${movie.title}</a>
+                <a href="./details.html?id=${movie.id}">${movie.title}</a>
             `;
             movieList.appendChild(movieDiv);
         });
