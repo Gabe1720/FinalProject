@@ -7,7 +7,7 @@ function search() {
     } else {
         result.innerHTML = "Search results for \"" + keyword + "\": ";
     }
-    fetch('/Database_files/movies_metadata.csv/movies_metadata.csv')
+    fetch('./Database_files/movies_metadata.csv/movies_metadata.csv')
 .then(response => response.text())
 .then(data => {
     const movieList = document.getElementById('movie-list');
