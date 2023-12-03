@@ -28,9 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close the CSV file
     fclose($csvFile);
 
+    // Cookie Variables
+    $cookie_name = "user";
+    $cookie_value = $email;
+
     // Redirect or display a success message
     if ($unique) {
-        header("Location: index.html");
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+        header("Location: movie_index.html");
         exit();
     } else {
         header("Location: duplicate.html");
