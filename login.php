@@ -20,15 +20,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Close the CSV file
     fclose($csvFile);
 
+    // Cookie Varaibles
+    $cookie_name = "user";
+    $cookie_value = $email;
+
     // Redirect or display a success message
     if ($valid) {
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
         header("Location: index.html");
         exit();
     } else {
         header("Location: invalid.html");
         exit();
     }
-
     exit();
 }
 ?>
