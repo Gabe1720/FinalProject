@@ -21,9 +21,14 @@
                 <button type="submit">Submit</button>
                 <p id="average"></p>
             </form>
-        <button type="button">Comments</button>
+        <button type="button" onclick="redirectToCommentsPage()">Comments</button>
             <!-- Add comment functionality -->
                 <!-- Determine if comments should be displayed of this page or a separate one-->
         <script src="./moviefinder.js"></script>
+        <script> 
+            function redirectToCommentsPage() {
+                window.location.href = './comments.html';
+            }
+        </script>
     </body>
 </html>
