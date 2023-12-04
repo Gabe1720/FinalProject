@@ -7,12 +7,13 @@
 
     <body>
         <h1>Rating</h1>
-        <label for= "rating">Enter a rating for 1-5 in stars:</label>
-        <input id= "rating" type="text">
-        <br>
-        <input id="rate" type="button" value="Rate" onclick="average()">
-        <br>
-        <p id= "average"></p>
+
+        <form action="rating.php" method="post">
+            <label for="rating">Enter a rating for 1-5 in stars:</label><br>
+            <input type="text" id="rating" name="rating"><br>
+            <button type="submit">Login</button>
+            <p id="average"></p>
+          </form>
 
         <script>
             var ratingList = [];
