@@ -8,13 +8,25 @@
         <div id="comments-section">
             <h2>Comments</h2>
             <div id="comment-box">
-                <textarea id="comment-input" placeholder="Type your comment here"></texta>
+                <textarea id="comment-input" placeholder="Type your comment here"></textarea>
                 <button type="button" onclick="addComment()">Add Comment</button>
             </div>
             <div id="previous-comments">
-            <p id="no-comments-message"> Looks like there aren't any comments yet. Feel f>
+                <script>
+                        fetch('./Database_files/comments/comments.csv')
+                        .then(response => response.text())
+                        .then(data => {
+                                const rows = data.split(',');
+                                for (let i = 0; i < rows.length; i++) {
+                                        console.log(rows[i]);
+
+                                }
+                        })
+                        .catch(error => console.error('Error:', error));
+        </script>
+            <!-- p id="no-comments-message"> Looks like there aren't any comments yet. Feel free to leave one!</p -->
             </div>
         </div>
-        <script src="./moviefinder.js"></script>
+        <script src="./comments.js"></script>
     </body>
 </html>
