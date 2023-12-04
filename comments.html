@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title> Movie Comments</title>
-        <link rel = "stylesheet" href="comments.css">
-    </head>
-    <body>
-        <div id="comments-section">
-            <h2>Comments</h2>
-            <div id="comment-box">
-                <textarea id="comment-input" placeholder="Type your comment here"></textarea>
-                <button type="button" onclick="addComment()">Add Comment</button>
-            </div>
-            <div id="previous-comments">
-                <script>
-                        fetch('./Database_files/comments/comments.csv')
-                        .then(response => response.text())
-                        .then(data => {
-                                const rows = data.split(',');
-                                for (let i = 0; i < rows.length; i++) {
-                                        console.log(rows[i]);
-
-                                }
-                        })
-                        .catch(error => console.error('Error:', error));
-        </script>
-            <!-- p id="no-comments-message"> Looks like there aren't any comments yet. Feel free to leave one!</p -->
-            </div>
+<head>
+    <title> Movie Comments</title>
+    <link rel="stylesheet" href="comments.css">
+</head>
+<body>
+    <div id="comments-section">
+        <h2>Comments</h2>
+        
+        <div id="comment-box">
+            <form action="comments.php" method="post">
+                <textarea id="comment-input" placeholder="Type your comment here" name="comment"></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </div>
-        <script src="./comments.js"></script>
-    </body>
+        
+        <div id="previous-comments">
+            <script>
+                fetch('./Database_files/comments/comments.csv')
+                    .then(response => response.text())
+                    .then(data => {
+                        const comments = data.split('\n');
+                        const previousCommentsElement = document.getElementById('previous-comments');
+    
+                        // Create an unordered list
+                        const commentList = document.createElement('ul');
+    
+                        comments.forEach(commentText => {
+                            if (commentText != "") {
+                                // Create a list item for each comment
+                                const commentListItem = document.createElement('li');
+                                commentListItem.textContent = commentText;
+        
+                                // Append the list item to the unordered list
+                                commentList.appendChild(commentListItem);
+                            }    
+                        });
+    
+                        // Append the unordered list to the parent container
+                        previousCommentsElement.appendChild(commentList);
+                    })
+                    .catch(error => console.error('Error:', error));
+            </script>
+        </div>
+        <!-- p id="no-comments-message"> Looks like there aren't any comments yet. Feel free to leave one!</p -->
+    </div>
+    <script src="./comments.js"></script>
+</body>
 </html>
