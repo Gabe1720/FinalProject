@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Redirect or display a success message
     if ($unique) {
-        setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
         header("Location: movie_index.html");
         exit();
     } else {
