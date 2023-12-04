@@ -1,6 +1,7 @@
 const source = new String("https://filmartgallery.com/cdn/shop/products");
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get('id');
+document.getElementById("movieID").setAttribute("value", movieId);
 var disney = "";
 fetch('movies_metadata.csv')
     .then(response => response.text())

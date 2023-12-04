@@ -14,12 +14,12 @@
         <form action="rating.php" method="post">
                 <label for="rating">Enter a rating for 1-5 in stars:</label><br>
                 <input type="text" id="rating" name="rating"><br>
+                <input type="text" id="movieID" name="id">
                 <button type="submit">Submit</button>
                 <p id="average"></p>
         </form>
         <button type="button" onclick="redirectToCommentsPage()">Comments</button>
-            <!-- Add comment functionality -->
-                <!-- Determine if comments should be displayed of this page or a separate>        <script src="./moviefinder.js"></script>
+            <script src="./moviefinder.js"></script>
         <script>
             function redirectToCommentsPage() {
                 window.location.href = './comments.html';
