@@ -2,6 +2,8 @@ function addComment() {
     var commentInput = document.getElementById('comment-input');
     var commentText = commentInput.value;
 
+        fetch('./Database_files/comments/comments.csv');
+
     if (commentText.trim() !== '') {
         var commentContainer = document.getElementById('previous-comments');
         var noCommentsMessage = document.getElementById('no-comments-message');
@@ -17,9 +19,12 @@ function addComment() {
         // Create a new comment element
         var newComment = document.createElement('div');
         newComment.className = 'comment';
-        newComment.innerHTML = '<span class="username">Anonymous:</span> ' + commentText +                                '<span class="timestamp"> (' + timestamp + ')</span>';
+        newComment.innerHTML = '<span class="username">Anonymous:</span> ' + commentText +
+                                '<span class="timestamp"> (' + timestamp + ')</span>';
         // Append the new comment to the comments container
         commentContainer.appendChild(newComment);
+
+        // Write to comment file
 
         // Clear the comment input field
         commentInput.value = '';
