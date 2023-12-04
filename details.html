@@ -3,32 +3,28 @@
     <head>
         <title>Movie Details</title>
         <link rel="stylesheet" href="details.css">
+    </head>
+    <body></body>
         <div id="movie-details">
             <!-- Movie details will be displayed here -->
         </div>
         <img src="./popcorn.png" alt="Popcorn">
-    </head>
-    <body>
-        <!-- Registered user restricted functionalities -->
-        <br> </br>
-        <br> </br>
+            <!-- Registered user restricted functionalities -->
         <p> The current user rating for the movie is: </p>
-        <!-- Add user rating functionality -->
-            <form action="rating.php" method="post">
-                <label for="rating">Enter a rating for 1-5 in stars:</label>
-                <input type="text" id="rating" name="rating">
+        <form action="rating.php" method="post">
+                <label for="rating">Enter a rating for 1-5 in stars:</label><br>
+                <input type="text" id="rating" name="rating"><br>
                 <button type="submit">Submit</button>
-            </form>
-        <br> </br>
+                <p id="average"></p>
+        </form>
         <button type="button" onclick="redirectToCommentsPage()">Comments</button>
-            <script> 
-                function redirectToCommentsPage() {
-                    window.location.href = './comments.html';
-                }
-            </script>
-        <button type="button">Favorite</button>
-            <!-- Add favorite functionality -->
-        <script src="./moviefinder.js"></script>
+            <!-- Add comment functionality -->
+                <!-- Determine if comments should be displayed of this page or a separate>        <script src="./moviefinder.js"></script>
+        <script>
+            function redirectToCommentsPage() {
+                window.location.href = './comments.html';
+            }
+        </script>
+       <button type="button">Favorite</button>
     </body>
 </html>
-
