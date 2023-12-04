@@ -1,0 +1,32 @@
+img {
+    position: absolute;
+    left: 310px;
+    top: 300px;
+    right: 20px;
+    bottom: 50px;
+    max-width: 70%;
+    max-height: 70%;
+    height: auto;
+    text-align: left;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+button {
+    position: relative;
+    left: 50px;
+    top: 200px;
+}
+
+body {
+    color: black;
+    background-color: #F0F8FF;
+    font-size: 18px;
+}
+.timestamp {
+    color: #888; /* Adjust the color as needed */
+    font-size: 0.8em; /* Adjust the font size as needed */
+    margin-left: 5px; /* Adjust the spacing as needed */
+}
