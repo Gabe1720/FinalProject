@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,46 +8,14 @@
         <div id="comments-section">
             <h2>Comments</h2>
             <div id="comment-box">
-                <textarea id="comment-input" placeholder="Type your comment here"></textarea>
+                <textarea id="comment-input" placeholder="Type your comment here"></texta>
                 <button type="button" onclick="addComment()">Add Comment</button>
             </div>
             <div id="previous-comments">
-            <p id="no-comments-message"> Looks like there aren't any comments yet. Feel free to leave one!</p>
+            <p id="no-comments-message"> Looks like there aren't any comments yet. Feel f>
             </div>
-
         </div>
-
         <script src="./moviefinder.js"></script>
-        <script>
-            function addComment() {
-    var commentInput = document.getElementById('comment-input');
-    var commentText = commentInput.value;
-
-    if (commentText.trim() !== '') {
-        var commentContainer = document.getElementById('previous-comments');
-        var noCommentsMessage = document.getElementById('no-comments-message');
-
-        // Check if the "no comments" message is visible and hide it
-        if (noCommentsMessage && noCommentsMessage.style.display !== 'none') {
-            noCommentsMessage.style.display = 'none';
-        }
-
-        // Get the current time
-        var currentTime = new Date();
-        var timestamp = currentTime.toLocaleString();
-        // Create a new comment element
-        var newComment = document.createElement('div');
-        newComment.className = 'comment';
-        newComment.innerHTML = '<span class="username">Anonymous:</span> ' + commentText +
-                                '<span class="timestamp"> (' + timestamp + ')</span>';
-        // Append the new comment to the comments container
-        commentContainer.appendChild(newComment);
-
-        // Clear the comment input field
-        commentInput.value = '';
-    }
-}
-
-        </script>
+        <script src="./comments.js"></script>
     </body>
 </html>
