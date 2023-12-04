@@ -24,7 +24,7 @@ function addComment() {
         // Append the new comment to the comments container
         commentContainer.appendChild(newComment);
 
-        // Write to comment file
+        // Write comment to file
 
         // Clear the comment input field
         commentInput.value = '';
