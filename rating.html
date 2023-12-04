@@ -27,7 +27,8 @@
                     for (let i = 0; i < ratingList.length; i++) {
                         sum += ratingList[i];
                     }
-                    result.innerHTML = "Average: " sum / ratingList.length;
+                    sum = sum / ratingList.length;
+                    result.innerHTML = "Average: "+sum;
                 }
             }
         </script>
